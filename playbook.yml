@@ -1,6 +1,7 @@
 ---
 
 - name: Default Playbook - Starting Deploy
-  hosts: linux-1
+  hosts: servidores 
   roles:
     - commons
+    - updates

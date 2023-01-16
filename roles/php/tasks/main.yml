@@ -1,0 +1,8 @@
+---
+
+#Instalando PHP
+
+- name: Install php
+  apt: name=php state=latest
+  when: ansible_distribution == "Debian"
+...

@@ -1,0 +1,16 @@
+---
+
+# Updates Distr Debian
+
+- name: Updates para Debian
+  apt: update_cache=yes upgrade=yes
+  when: ansible_distribution == "Debian"
+
+# Update Distr CentOs
+
+- name: Updates para CentOS
+  yum: name=* state=latest security=yes
+  when: ansible_distribution == "CentOS"
+
+
+...

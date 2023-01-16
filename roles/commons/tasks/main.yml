@@ -1,19 +1,5 @@
 ---
 # tasks file for commons
-# Gerenciamento de pacotes de atualização
-
-#- name: Atualizacao do Sistema Operacional
-#  yum: name=* state=latest update_cache=yes
-
-#- name: Instalacao de Pacotes
-#  yum:
-#    name: "{{ packages }}"
-#    state: latest
-#  vars:
-#    packages:
-#      - tcpdump
-#      - htop
-
 #Tarefa para configurar TimeZone
 
 - name: Configurando TimeZone
@@ -34,5 +20,5 @@
 - name: Install Nginx
   apt: name=nginx state=present
   notify: Restart Nginx
-
+  when: ansible_distribution == "Debian"
 ...
