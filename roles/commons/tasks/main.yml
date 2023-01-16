@@ -1,0 +1,38 @@
+---
+# tasks file for commons
+# Gerenciamento de pacotes de atualização
+
+#- name: Atualizacao do Sistema Operacional
+#  yum: name=* state=latest update_cache=yes
+
+#- name: Instalacao de Pacotes
+#  yum:
+#    name: "{{ packages }}"
+#    state: latest
+#  vars:
+#    packages:
+#      - tcpdump
+#      - htop
+
+#Tarefa para configurar TimeZone
+
+- name: Configurando TimeZone
+  file: src=/usr/share/zoneinfo/America/Sao_Paulo dest=/etc/localtime state=link force=yes
+
+#Utilizando o Modulo Copy
+
+- name: Copiando arquivo com o Modulo Copy
+  copy: src=alan.txt dest=/tmp/alan-copy.txt
+
+#Utilizando um template
+
+- name: Copiando o template motd
+  template: src=motd dest=/etc/motd force=yes owner=root group=root
+
+#Utilizando um Handler
+
+- name: Install Nginx
+  apt: name=nginx state=present
+  notify: Restart Nginx
+
+...

@@ -1,0 +1,10 @@
+----------------------------------------------------------
+		    Servidor Haproxy
+
+
+HostName: {{ ansible_hostname }}
+FQDN: {{ ansible_fqdn }}
+Endereços IPs: {{ ansible_all_ipv4_addresses }}
+
+
+----------------------------------------------------------
